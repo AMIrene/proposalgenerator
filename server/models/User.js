@@ -4,17 +4,26 @@ const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
+ 
   email: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
+    
   },
   password: {
     type: String,
     required: true,
-    minlength: 5
-  }
+    minlength: 5,
+  },
+  projects: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Project',
+    },
+  ],
 });
+
 
 // set up pre-save middleware to create password
 userSchema.pre('save', async function(next) {
