@@ -1,10 +1,23 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, Project } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    user: async (parent, args, context) => {
+
+    //retrieve all project
+
+    projects: async () => {
+      return Project.find();
+    },
+
+    //retrieve one project
+
+    project: async (parent, { projectId }) => {
+      return Project.findOne({ _id: projectId });
+    },
+
+     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id);
         return user;
@@ -12,6 +25,7 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
+
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -43,7 +57,46 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
-    }
+ 
+    },
+
+    //Add a new project
+    addProject: async (parent, { projectId, projectRef, projectTitle }, context) => {
+      if (context.user) {
+        const project = await Project.create({
+          projectId,
+          projectRef,
+          projectTitle,
+          projectManager: context.user.email,
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { projects: project._id } }
+        );
+
+        return project;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+
+  
+  //Delete a new project
+    deleteProject: async (parent, { projectId }, context) => {
+      if (context.user) {
+        const project = await Project.findOneAndDelete({
+          _id: projectId,
+          projectManager: context.user.email,
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { thoughts: thought._id } }
+        );
+        return project;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
   }
 };
 
