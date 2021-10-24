@@ -27,3 +27,29 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_PROJECT = gql`
+mutation addProject($projectId: Int!, $projectRef: String!, $projectTitle: String!, $projectManager: String!){
+  addProject(projectId: $projectId, projectRef: $projectRef, projectTitle: $projectTitle, projectManager: $projectManager){
+    _id
+    projectId
+    projectRef
+    projectManager
+    createdAt
+  }
+}
+`;
+
+export const DELETE_PROJECT = gql`
+mutation deleteProject($projectId: Int!) {
+  deleteProject(projectId: $projectId) {
+    _id
+    projectRef
+    projectTitle
+    projectManager
+
+  }
+}
+
+
+`;
