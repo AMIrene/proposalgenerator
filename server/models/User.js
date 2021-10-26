@@ -4,6 +4,11 @@ const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
+
+  username: {
+    type: String,
+    trim: true,
+  },
  
   email: {
     type: String,
@@ -20,7 +25,6 @@ const userSchema = new Schema({
     {
       type: Schema.Types.ObjectId,
       ref: 'Project',
-      required: true,
     },
   ],
 });
