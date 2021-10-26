@@ -1,26 +1,18 @@
 [
-    {
-    
-      "email": "bkernighan@gmail.com",
-      "password": "password01",
-      "project": ["MEL Design for Youth Project"],
-      "projectManager": "Brendan Knight"
+  {
+    "username": "Brian Kernighan",
+    "email": "bkernighan@gmail",
+    "password": "password01"
+  },
+  {
+    "username": "Max Alexander",
+    "email": "mkanatalexander@gmail",
+    "password": "password02"
+  },
+  {
+    "username": "Jeremy Andrews",
+    "email": "jandy@gmail",
+    "password": "password03"
+  }
 
-    },
-    {
-      
-      "email": "mkanatalexander@gmail.com",
-      "password": "password02",
-      "project": ["Theory of Change design"],
-      "projectManager": "Wilson Alexander"
-    },
-    {
-   
-      "email": "wtls@gmail.com",
-      "password": "password03",
-      "project": ["Quality Assurance of Social Enterprise Initiative"],
-      "projectManager": "John Night"
-    }
-    
-  ]
-  
+]
