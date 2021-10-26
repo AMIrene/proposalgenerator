@@ -67,7 +67,7 @@ const resolvers = {
           projectId,
           projectRef,
           projectTitle,
-          projectManager: context.user.email,
+          projectManager: context.user._id,
         });
 
         await User.findOneAndUpdate(
@@ -86,12 +86,12 @@ const resolvers = {
       if (context.user) {
         const project = await Project.findOneAndDelete({
           _id: projectId,
-          projectManager: context.user.email,
+          
         });
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { thoughts: thought._id } }
+          { $pull: { projects: project._id } }
         );
         return project;
       }

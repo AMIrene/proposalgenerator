@@ -16,15 +16,13 @@ const projectSchema = new Schema({
     },
 
     
-    projectManager: [{
-        type: String,
+    projectManager: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
         required: true,
-        trim: true,
-
     },
-],
     
-    
+        
     createdAt: {
         type: Date,
         default: Date.now,
