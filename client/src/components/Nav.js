@@ -78,7 +78,14 @@ function Nav() {
 					<Link to="/">
 						Home
 					</Link>
+				  </NavigationItem>
+				  
+				  <NavigationItem>
+					<Link to="/projects">
+						Projects
+					</Link>
 				</NavigationItem>
+
 			</NavigationList>
 			<AuthNav />
 		</StyledNav>
