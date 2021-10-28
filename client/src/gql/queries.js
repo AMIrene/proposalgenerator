@@ -4,6 +4,7 @@ export const QUERY_USER = gql`
   {
     user {
       email
+      username
       projects {
         _id
         projectRef
