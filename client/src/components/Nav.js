@@ -66,6 +66,12 @@ function AuthNav() {
 		return (
 			
 			<NavigationList float="right">
+
+				<NavigationItem >
+					<Link  to="/projects">
+						Projects
+					</Link>
+				</NavigationItem>
 			
 				<NavigationItem>
 					{/* this is not using the Link component to logout or user and then refresh the application to the start */}
@@ -73,6 +79,8 @@ function AuthNav() {
 						Logout
 					</a>
 				</NavigationItem>
+
+				
 			</NavigationList>
 		);
 	} else {
@@ -112,11 +120,7 @@ function Nav() {
 				  </NavigationItem>
 				  			
 				  
-				  <NavigationItem >
-					<Link style={styles.ProjectHeader} to="/projects">
-						Projects
-					</Link>
-				</NavigationItem>
+				 
 
 			</NavigationList>
 			<AuthNav />
