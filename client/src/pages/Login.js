@@ -14,6 +14,8 @@ import '../styles/home.css';
 const styles = {
   cardPosition: {
     display: 'flex',
+  
+    justifyContent: 'center',
     paddingLeft: '50px',
     
     marginTop: '100px',

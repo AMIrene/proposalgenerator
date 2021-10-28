@@ -47,12 +47,24 @@ const styles = {
 	BrandHeader: {
 		fontSize: '2.2rem',
 		fontWeight: 'bold',
+		
+	},
+
+	ProjectHeader: {
+		fontSize: '2.2rem',
+		
+	},
+
+	logo: {
+		paddingLeft: '10px',
+
 	},
 }
 
 function AuthNav() {
 	if (Auth.loggedIn()) {
 		return (
+			
 			<NavigationList float="right">
 			
 				<NavigationItem>
@@ -85,21 +97,23 @@ function AuthNav() {
 
 function Nav() {
   return (
-    <Header>
+	  <Header>
+		  
 		<StyledNav>
 			  <NavigationList>
+				  <img src="iamlogo.png" style={styles.logo} />
 			 
 				  <NavigationItem>
 					 
 					  <Link style={styles.BrandHeader} to="/">
-					  <img src="" className="Nav__logo" />
+					  
 							  ProposalWise
 					</Link>
 				  </NavigationItem>
 				  			
 				  
 				  <NavigationItem >
-					<Link to="/projects">
+					<Link style={styles.ProjectHeader} to="/projects">
 						Projects
 					</Link>
 				</NavigationItem>

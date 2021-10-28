@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import Icon from '@mui/material/Icon';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import '../styles/home.css';
 
  
 
