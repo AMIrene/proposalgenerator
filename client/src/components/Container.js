@@ -3,12 +3,13 @@ import { color, shape } from '../styles';
 
 const StyledContainer = styled.div`
 	padding: 2rem;
-	background: ${color.backgroundLight};
-	border-top: 1px solid;
+	// background: ${color.backgroundLight};
+	
 	font-size: 1.4rem;
 
 	${props => `
 		text-align: ${props.alignContent};
+		
 	`}
 `;
 

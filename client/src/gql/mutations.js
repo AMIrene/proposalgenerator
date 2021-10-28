@@ -29,8 +29,8 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_PROJECT = gql`
-mutation addProject($projectId: Int, $projectRef: String, $projectTitle: String, $projectManager: [String]){
-  addProject(projectId: $projectId, projectRef: $projectRef, projectTitle: $projectTitle, projectManager: $projectManager){
+mutation addProject($projectId: Int, $projectRef: String, $projectTitle: String){
+  addProject(projectId: $projectId, projectRef: $projectRef, projectTitle: $projectTitle){
     _id
     projectId
     projectRef

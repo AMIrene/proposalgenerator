@@ -80,7 +80,9 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 
-  
+  //update an existing project
+    
+   
   //Delete a new project
     deleteProject: async (parent, { projectId }, context) => {
       if (context.user) {

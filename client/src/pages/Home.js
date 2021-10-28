@@ -1,13 +1,28 @@
 import React from "react";
+import '../styles/home.css';
+
 
 import { Container } from "../components/Container";
-import { H2 } from '../components/Text';
 
+
+const styles = {
+  login: {
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: '60px',
+    
+    
+   
+  },
+};
 const Home = () => {
   return (
-    <Container alignContent="center">
-      <H2>Hello world</H2>
-    </Container>
+
+    <Container style={styles.login}>
+   
+   </Container>
+
+    
   );
 };
 
