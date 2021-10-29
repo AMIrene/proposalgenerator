@@ -15,6 +15,12 @@ const projectSchema = new Schema({
         trim: true,
     },
 
+    tags: {
+        type: String,
+        required: true,
+        trim: true,
+    },
+
     
     projectManager: {
         type: Schema.Types.ObjectId,
