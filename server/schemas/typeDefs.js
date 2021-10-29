@@ -13,6 +13,9 @@ const typeDefs = gql`
     _id: ID
     projectRef: Int
     projectTitle: String
+    tags: String
+    projectClient: String
+    projectDescription: String
     projectManager: User
     createdAt: String
       
@@ -28,6 +31,7 @@ const typeDefs = gql`
     user: User
     projects: [Project]
     project(projectId: ID): Project
+    searchProject(searchkey: String!): [Project]
     
   }
 
@@ -35,8 +39,8 @@ const typeDefs = gql`
     addUser(username: String, email: String!, password: String!): Auth
     updateUser(email: String, password: String): User
     login(email: String!, password: String!): Auth
-    addProject( projectRef: Int, projectTitle: String): Project
-    updateProject(projectId: ID, projectRef: Int, projectTitle: String): Project
+    addProject( projectRef: Int, projectTitle: String, tags: String, projectClient: String, projectDescription: String): Project
+    updateProject(projectId: ID, projectRef: Int, projectTitle: String, tags: String, projectClient: String, projectDescription: String): Project
     deleteProject(projectId: ID): Project
   }
 `;

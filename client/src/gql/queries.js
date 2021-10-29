@@ -9,7 +9,10 @@ export const QUERY_USER = gql`
         _id
         projectRef
         projectTitle
-        projectManager
+        tags
+        projectClient
+        projectDescription
+        projectManager{_id}
         createdAt
       }
     }
@@ -24,7 +27,10 @@ query getProjects {
     _id
     projectRef
     projectTitle
-    projectManager
+    tags
+    projectClient
+    projectDescription
+    projectManager{_id}
     createdAt
   }
 }
@@ -33,11 +39,14 @@ query getProjects {
 // get a single project
 export const QUERY_SINGLE_PROJECT = gql`
 query getSingleProject($projectId: ID!) {
-  project(projectId: $$projectId) {
+  project(projectId: $projectId) {
     _id
     projectRef
     projectTitle
-    projectManager
+    tags
+    projectClient
+    projectDescription
+    projectManager{_id}
     createdAt
   }
 }
