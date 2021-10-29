@@ -50,6 +50,21 @@ query getSingleProject($projectId: ID!) {
     createdAt
   }
 }
+`;
 
+export const SEARCH_PROJECTS = gql`
+query searchProjects($searchkey: String!) {
+  project(projectId: $projectId) {
+    _id
+    projectRef
+    projectTitle
+    tags
+    projectClient
+    projectDescription
+    projectManager{_id}
+    createdAt
+  }
+
+}
 
 `;
