@@ -26,6 +26,16 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
 
+    searchProject: async (parent, args, context) => {
+      if (context.user) {
+        let regexNew = new RegExp(args.searchkey, 'g')
+        const projects = await Project.find({ projectTitle: regexNew });
+        return projects
+      }
+      throw new AuthenticationError('Not logged in');
+       
+    }
+
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -61,12 +71,15 @@ const resolvers = {
     },
 
     //Add a new project
-    addProject: async (parent, { projectId, projectRef, projectTitle }, context) => {
+    addProject: async (parent, { projectId, projectRef, projectTitle, tags, projectClient, projectDescription }, context) => {
       if (context.user) {
         const project = await Project.create({
           projectId,
           projectRef,
           projectTitle,
+          tags,
+          projectClient,
+          projectDescription,
           projectManager: context.user._id,
         });
 
@@ -81,8 +94,31 @@ const resolvers = {
     },
 
   //update an existing project
-    
+    updateProject: async (parent, { projectId, projectRef, projectTitle, tags, projectClient, projectDescription }, context) => {
+      if (context.user) {
+           const project = await Project.findOneAndUpdate({
+          _id: projectId,
+        },
+          {
+            projectRef,
+            projectTitle,
+            tags,
+            projectClient,
+            projectDescription,
+          
+          }, {
+            new: true
+          }
+        
+        );
+          return project;
+               
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+     
    
+       
   //Delete a new project
     deleteProject: async (parent, { projectId }, context) => {
       if (context.user) {
