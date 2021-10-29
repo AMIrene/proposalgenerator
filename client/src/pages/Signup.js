@@ -97,7 +97,7 @@ function Signup(props) {
           <label style={styles.labelStyle} htmlFor="username">Name:</label>
           <input
             placeholder="First"
-            username="username"
+            name="username"
             type="username"
             id="username"
             onChange={handleChange}
