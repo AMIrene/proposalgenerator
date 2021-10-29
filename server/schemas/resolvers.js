@@ -28,7 +28,7 @@ const resolvers = {
 
     searchProject: async (parent, args, context) => {
       if (context.user) {
-        let regexNew = new RegExp(args.searchkey, 'g')
+        let regexNew = new RegExp(args.searchkey, 'i')
         const projects = await Project.find({ projectTitle: regexNew });
         return projects
       }
