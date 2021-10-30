@@ -9,7 +9,7 @@ import Button from '@mui/material/Button';
 
 const Projects1 = () => {
 
-    const [searchText, setSearchText] = useState("Design");
+    const [searchText, setSearchText] = useState("");
     
     console.log(searchText);
     
