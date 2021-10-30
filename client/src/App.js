@@ -13,7 +13,6 @@ import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Nav from './components/Nav';
-import Projects from './pages/Projects';
 import Projects1 from './pages/Projects1';
 
 import { StoreProvider } from './state/GlobalState';
