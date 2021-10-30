@@ -1,0 +1,32 @@
+
+[
+  {
+    "projectRef": "10000",
+    "projectTitle": "MEL Design for Youth Project",
+    "projectManager": {"_id":"61768b352e4cd53b345de1b0"},
+    "projectDescription": "The Macarthur Youth Mental Health and Housing Project (MYP) was designed to support young people in South Western Sydney who are experiencing or at risk of homelessness and who have mental health issues.The evaluation report describes the outcomes for young people during the project regarding housing, personal wellbeing, and social connectedness. The report also lists lessons learnt from the project that may be applicable to future service delivery for young people.",
+    "projectClient": "Shelter for Youth",
+    "tags": "MEL, Design"
+    
+  },
+  {
+      "projectRef": "10001",
+      "projectTitle": "Theory of Change design",
+      "projectManager": {"_id":"61768530c9bece6f60959eb1"},
+      "projectDescription": "WaterAid's theory of change relies on demonstrating how to deliver cost effective, equitable, sustainable and scalable WASH programmes and then advocating for the widespread adoption of our approaches by other stakeholders. WaterAid has also driven the adoption and implementation of WASH policies and strategies at national, regional and international level, most recently in PNG (2015) and Timor (2012).",
+      "projectClient": "WaterAid",
+      "tags": "ToC, Design"
+
+      
+  },
+  {
+      "projectRef": "10002",
+      "projectTitle": "Quality Assurance of Social Enterprise Initiative",
+      "projectManager": {"_id":"61768b352e4cd53b345de1b2"},
+      "projectDescription": "The economic crisis and present government’s strategy on spending cuts have put pressure on public bodies to do ‘more with less’. With their pursuit of a balance between social and economic objectives, social enterprises have the potential to minimise costs for public sector service delivery and fulfil a number of other policy priorities. The coalition government suggests identifying the best social enterprises and then rolling out their innovative services across the country. However, nowhere is the social, environmental and health value created by social enterprises captured systematically and there is not a level playing field that enables comparison across different types of social enterprises.",
+      "projectClient": "Public Housing Committee Victoria",
+      "tags": "Quality Assurance"
+      
+  }
+  
+]

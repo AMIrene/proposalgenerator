@@ -1,0 +1,57 @@
+html,
+body {
+  background-color: #e9e3e8;
+
+}
+
+@media screen and (max-width : 576px) {
+  
+    .banner{
+    
+      height: 100vh;
+    }
+
+    .hero-text {
+     font-size: 20px;
+    }
+
+    .authLoginCard {
+      display: flex;
+      margin-top: 100px;
+      align-items: right;
+      
+
+    }
+
+}
+
+@media screen and (min-width: 576px) and (max-width: 810px) {
+
+    .banner{
+        height: 90vh;
+        width: 90vh;
+      }
+  .hero-text {
+    font-size: 40px;
+}
+    }
+  
+
+  @media screen and (min-width: 811px) and (max-width: 1690px) {
+    .banner{
+      height: 90vh;
+     
+    }
+
+    .hero-text {
+        font-size: 30px;
+        
+}
+.authLoginCard {
+  display: flex;
+  margin-top: 100px;
+  align-items: right;
+  
+
+}
+  }

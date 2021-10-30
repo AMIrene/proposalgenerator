@@ -3,10 +3,57 @@ import { useMutation } from '@apollo/client';
 import { LOGIN } from '../gql/mutations';
 import Auth from '../utils/auth';
 
-import { Container } from "../components/Container";
 import { H2 } from '../components/Text';
 import { Breadcrumb } from '../components/Breadcrumb';
 import { Button } from '../components/Button';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import '../styles/home.css';
+
+
+const styles = {
+  cardPosition: {
+    display: 'flex',
+  
+    justifyContent: 'center',
+    paddingLeft: '50px',
+    
+    marginTop: '100px',
+   
+
+    
+
+  },
+
+  cardStyle: {
+    padding: '10px',
+    display: 'flex',
+    alignContent: 'center',
+    justifyContent: 'center',
+    
+    
+
+  },
+
+  labelStyle: {
+    paddingRight: '5px',
+    display: 'flex',
+   alignItems: 'center',
+    justifyContent: 'center',
+    fontWeight: 'bold',
+    fontSize: '1.1em',
+  },
+
+  buttonStyle: {
+    padding: '4px',
+    display: 'flex',
+    alignContents: 'center',
+    justifyContent: 'center',
+    fontSize: '1.5em',
+    
+
+  },
+}
 
 function Login(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -35,12 +82,15 @@ function Login(props) {
 
   return (
     <>
-      <Breadcrumb location={'/signup'} text={`← Go to Signup`} />
-      <Container>
-        <H2>Login</H2>
+     
+      <div className="authLoginCard" style={styles.cardPosition} >
+  
+      <Card sx={{ width: 400 }}>
+        <H2 style={styles.cardStyle}>Login</H2>
+        <CardContent >
         <form onSubmit={handleFormSubmit}>
-          <div className="flex-row space-between my-2">
-            <label htmlFor="email">Email address:</label>
+          <div style={styles.cardStyle} className="flex-row space-between my-2">
+            <label style={styles.labelStyle} htmlFor="email">Email address:</label>
             <input
               placeholder="youremail@test.com"
               name="email"
@@ -49,8 +99,8 @@ function Login(props) {
               onChange={handleChange}
             />
           </div>
-          <div className="flex-row space-between my-2">
-            <label htmlFor="pwd">Password:</label>
+          <div style={styles.cardStyle} className="flex-row space-between my-2">
+            <label style={styles.labelStyle} htmlFor="pwd">Password:</label>
             <input
               placeholder="******"
               name="password"
@@ -64,11 +114,17 @@ function Login(props) {
               <p className="error-text">The provided credentials are incorrect</p>
             </div>
           ) : null}
-          <div className="flex-row flex-end">
-            <Button type="submit">Submit</Button>
+          <div style={styles.buttonStyle} className="flex-row flex-end">
+            <Button  type="submit">Submit</Button>
           </div>
         </form>
-      </Container>
+        </CardContent>
+        <div style={styles.cardStyle}>
+        <Breadcrumb location={'/signup'}  text={`Don't have an Account. Signup today.`} />
+        </div>
+        </Card>
+        </div>
+        
     </>
   );
 }

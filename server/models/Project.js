@@ -5,47 +5,46 @@ const projectSchema = new Schema({
     projectRef: {
         type: Number,
         required: 'You need a project reference number.',
-        minlength: 10,
+        minlength: 4,
         maxlength: 20,
         trim: true,
     },
-
     projectTitle: {
         type: String,
         required: true,
         trim: true,
     },
 
-    projectDuration: {
+    tags: {
         type: String,
-        required: 'Specify project timeframe as Year to Year',
+        required: true,
+        trim: true,
+    },
+
+    projectDescription: {
+        type: String,
+        required: true,
+        minlength: 1,
+        maxlength: 1000,
+        trim: true,
+        
+    },
+
+    projectClient: {
+        type: String,
+        required: true,
+        minlength: 1,
+        maxlength: 200,
         trim: true,
     },
     
-    projectActive: {
-        type: Boolean,
-        default: true,
-
+    projectManager: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
     },
-    projectLocation: {
-        type: String,
-        required: 'Enter State, Territory, Region or Country',
-        trim: true,
-
-    },
-
-    projectType: {
-        type: String,
-        required: 'Enter type of project',
-        trim: true,
-    },
-
-    projectSector: {
-        type: String,
-        required: 'Specify project sector',
-        trim: true,
-    },
-
+    
+        
     createdAt: {
         type: Date,
         default: Date.now,
@@ -53,13 +52,6 @@ const projectSchema = new Schema({
 
     },
 
-    tags: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Tags',
-        },
-    ],
-    
 
 });
 

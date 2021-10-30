@@ -6,11 +6,14 @@ import { color, shape } from '../styles';
 import styled from 'styled-components';
 
 const Header = styled.header`
-	// padding: 20px;
+	// padding: 40px;
 `;
 
 const StyledNav = styled.nav`
 	display: flex;
+	background: ${color.primary};
+	padding-top: 15px;
+	padding-bottom: 15px;
 `;
 
 const NavigationList = styled.ul`
@@ -29,31 +32,62 @@ const NavigationItem = styled.li`
 	border-radius: ${shape.borderRadius};
 
 	a {
-		color: ${color.textDark};
+		color: ${color.text};
 		text-decoration: none;
 		font-size: 1.6rem;
 	}
 
 	&:hover {
-		background: ${color.backgroundLight};
+		background: ${color.hovercolor};
 	}
-`;
+`
+	;
+
+const styles = {
+	BrandHeader: {
+		fontSize: '2.2rem',
+		fontWeight: 'bold',
+		
+	},
+
+	ProjectHeader: {
+		fontSize: '2.2rem',
+		
+	},
+
+	logo: {
+		paddingLeft: '10px',
+
+	},
+}
 
 function AuthNav() {
 	if (Auth.loggedIn()) {
 		return (
+			
 			<NavigationList float="right">
+
+				<NavigationItem >
+					<Link  to="/projects">
+						Projects
+					</Link>
+				</NavigationItem>
+			
 				<NavigationItem>
 					{/* this is not using the Link component to logout or user and then refresh the application to the start */}
 					<a href="/" onClick={() => Auth.logout()}>
 						Logout
 					</a>
 				</NavigationItem>
+
+				
 			</NavigationList>
 		);
 	} else {
 		return (
 			<NavigationList float="right">
+
+
 				<NavigationItem>
 					<Link to="/signup">
 						Signup
@@ -71,14 +105,23 @@ function AuthNav() {
 
 function Nav() {
   return (
-    <Header>
+	  <Header>
+		  
 		<StyledNav>
-			<NavigationList>
-				<NavigationItem>
-					<Link to="/">
-						Home
+			  <NavigationList>
+				  <img src="iamlogo.png" style={styles.logo} />
+			 
+				  <NavigationItem>
+					 
+					  <Link style={styles.BrandHeader} to="/">
+					  
+							  ProposalWise
 					</Link>
-				</NavigationItem>
+				  </NavigationItem>
+				  			
+				  
+				 
+
 			</NavigationList>
 			<AuthNav />
 		</StyledNav>
