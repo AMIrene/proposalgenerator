@@ -5,7 +5,22 @@ import ProjectList from '../components/ProjectList';
 import { SEARCH_PROJECTS } from '../gql/queries';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
+import { Button } from '../components/Button';
+
+const styles = {
+    SearchBar: {
+        width: '50%',
+        padding: '22px',
+        paddingTop: '15px',
+        color: '#1C3144',
+    },
+    Btn: {
+        marginTop: '20px',
+        marginBottom: '20px',
+        
+    },
+}
 
 const Projects1 = () => {
 
@@ -27,8 +42,8 @@ const Projects1 = () => {
     return (
         <div>
             <Box>
-                <TextField id="outlined-basic" value={searchText} variant="outlined" onChange={(event) => {setSearchText(event.target.value)}} />
-                <Button variant="contained" onClick={()=>{}}>Search</Button>
+                <TextField style={styles.SearchBar}id="outlined-basic" value={searchText} variant="outlined" onChange={(event) => {setSearchText(event.target.value)}} />
+                <Button style={styles.Btn} variant="contained" onClick={()=>{}}>Search</Button>
             </Box>
             <ProjectList
                 projects={data.searchProject}
