@@ -1,9 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
+
 
 const styles = {
     Heading1: {
@@ -59,7 +57,6 @@ const ProjectList = ({
     projects,
     
 }) => {
-    
     return (
         <div>
             {projects.map((project) =>
@@ -71,9 +68,8 @@ const ProjectList = ({
                 <div style={styles.Heading2}>Project Description:</div>
                 <div style={styles.TextContent}>{project.projectDescription}</div>
                 <div style={styles.TagStyle}>{project.tags}</div>   
-
-                    
-                   
+             
+                 
                        
                            
                 </Card>
