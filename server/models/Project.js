@@ -21,6 +21,22 @@ const projectSchema = new Schema({
         trim: true,
     },
 
+    projectDescription: {
+        type: String,
+        required: true,
+        minlength: 1,
+        maxlength: 1000,
+        trim: true,
+        
+    },
+
+    projectClient: {
+        type: String,
+        required: true,
+        minlength: 1,
+        maxlength: 200,
+        trim: true,
+    },
     
     projectManager: {
         type: Schema.Types.ObjectId,
