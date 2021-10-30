@@ -36,6 +36,7 @@ mutation addProject($projectId: Int, $projectRef: String, $projectTitle: String,
     _id
     projectId
     projectRef
+    projectTitle
     tags
     projectClient
     projectDescription
@@ -65,9 +66,8 @@ export const DELETE_PROJECT = gql`
 mutation deleteProject($projectId: Int) {
   deleteProject(projectId: $projectId) {
     _id
-    projectRef
-    projectTitle
-    projectManager
+    projectId
+    
 
   }
 }
