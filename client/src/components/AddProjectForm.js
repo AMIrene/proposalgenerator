@@ -31,6 +31,8 @@ const styles = {
   Btn: {
     margin: '20px',
     display: 'flex',
+    fontSize: '15px',
+    fontWeight: 'bold',
      
   },
 
@@ -112,31 +114,31 @@ const AddProjectForm = () => {
             >
               <div >
                 <input style={styles.AddInputRef}
-                  placeholder="Add project reference"
+                  placeholder="Enter project reference"
                   value={newProject.projectRef}
                  
                   onChange={(event) => setProjectRef(event.target.value)}
                         />
               <input style={styles.AddInputRef}
-                  placeholder="Add project title"
+                  placeholder="Enter project title"
                   value={newProject.projectTitle}
                   
                   onChange={(event) => setProjectTitle(event.target.value)}
                 />
                 <input style={styles.AddInputRef}
-                  placeholder="Add project client"
+                  placeholder="Enter project client"
                   value={newProject.projectClient}
                 
                   onChange={(event) => setProjectClient(event.target.value)}
                  />
                  <input style={styles.AddInputRef}
-                  placeholder="Add project description"
+                  placeholder="Enter project description"
                   value={newProject.projectDescription}
                
                   onChange={(event) => setProjectDescription(event.target.value)}
                         />
                  <input style={styles.AddInputRef}
-                  placeholder="Add project tags. Add multiple separated by comma."
+                  placeholder="Enter project tags. Add multiple separated by comma."
                   value={newProject.tags}
             
                   onChange={(event) => setTags(event.target.value)}
