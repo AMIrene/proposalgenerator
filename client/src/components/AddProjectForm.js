@@ -7,6 +7,37 @@ import { QUERY_PROJECTS, QUERY_USER } from '../gql/queries';
 
 import Auth from '../utils/auth';
 
+import { Button } from '../components/Button';
+
+const styles = {
+
+  DisplayText: {
+    fontSize: '20px',
+    fontWeight: 'bold',
+    color: '#1C3144',
+    margin: '20px',
+    marginLeft: '20px',
+  },  
+  AddInputRef: {
+    width: '50%',
+    margin: '3px',
+    padding: '10px',
+    display: 'flex',
+    marginLeft: '20px',
+    marginTop: '20px',
+       
+  },
+
+  Btn: {
+    margin: '20px',
+    display: 'flex',
+     
+  },
+
+  
+
+}
+
 const AddProjectForm = () => {
 
     const [newProject, setNewProject] = useState('');
@@ -72,39 +103,39 @@ const AddProjectForm = () => {
     
     return (
         <div>
-          <h4>Add a project.</h4>
+          <h4 style={styles.DisplayText}>Enter project details</h4>
     
           {Auth.loggedIn() ? (
             <form
               
               onSubmit={handleFormSubmit}
             >
-              <div className="col-12 col-lg-9">
-                <input
+              <div >
+                <input style={styles.AddInputRef}
                   placeholder="Add project reference"
                   value={newProject.projectRef}
                  
                   onChange={(event) => setProjectRef(event.target.value)}
                         />
-                <input
+              <input style={styles.AddInputRef}
                   placeholder="Add project title"
                   value={newProject.projectTitle}
                   
                   onChange={(event) => setProjectTitle(event.target.value)}
                 />
-                <input
+                <input style={styles.AddInputRef}
                   placeholder="Add project client"
                   value={newProject.projectClient}
                 
                   onChange={(event) => setProjectClient(event.target.value)}
                  />
-                 <input
+                 <input style={styles.AddInputRef}
                   placeholder="Add project description"
                   value={newProject.projectDescription}
                
                   onChange={(event) => setProjectDescription(event.target.value)}
                         />
-                 <input
+                 <input style={styles.AddInputRef}
                   placeholder="Add project tags. Add multiple separated by comma."
                   value={newProject.tags}
             
@@ -114,9 +145,9 @@ const AddProjectForm = () => {
               
     
               <div className="col-12 col-lg-3">
-                <button type="submit">
+                <Button style={styles.Btn} type="submit">
                  Add project
-                        </button>
+                        </Button>
                      
                     </div>
                    
