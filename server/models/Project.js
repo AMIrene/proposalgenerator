@@ -3,7 +3,7 @@ const dateFormat = require('../utils/dateFormat');
 
 const projectSchema = new Schema({
     projectRef: {
-        type: Number,
+        type: String,
         required: 'You need a project reference number.',
         minlength: 4,
         maxlength: 20,

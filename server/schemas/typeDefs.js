@@ -11,7 +11,7 @@ const typeDefs = gql`
 
   type Project {
     _id: ID
-    projectRef: Int
+    projectRef: String
     projectTitle: String
     tags: String
     projectClient: String
@@ -39,8 +39,8 @@ const typeDefs = gql`
     addUser(username: String, email: String!, password: String!): Auth
     updateUser(email: String, password: String): User
     login(email: String!, password: String!): Auth
-    addProject( projectRef: Int, projectTitle: String, tags: String, projectClient: String, projectDescription: String): Project
-    updateProject(projectId: ID, projectRef: Int, projectTitle: String, tags: String, projectClient: String, projectDescription: String): Project
+    addProject( projectRef: String, projectTitle: String, projectDescription: String,  projectClient: String, tags: String ): Project
+    updateProject(projectId: ID, projectRef: String, projectTitle: String, tags: String, projectClient: String, projectDescription: String): Project
     deleteProject(projectId: ID): Project
   }
 `;

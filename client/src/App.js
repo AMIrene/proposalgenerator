@@ -14,6 +14,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Nav from './components/Nav';
 import Projects1 from './pages/Projects1';
+import AddNewProject from './pages/AddNewProject';
 
 import { StoreProvider } from './state/GlobalState';
 
@@ -46,7 +47,8 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
-            <Route exact path="/projects" component={Projects1}/>
+            <Route exact path="/projects" component={Projects1} />
+            <Route exact path="/newproject" component={AddNewProject}/>
             <Route component={NoMatch} />
           </Switch>
         </StoreProvider>

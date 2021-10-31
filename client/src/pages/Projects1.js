@@ -5,8 +5,8 @@ import ProjectList from '../components/ProjectList';
 import { SEARCH_PROJECTS } from '../gql/queries';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
-// import Button from '@mui/material/Button';
 import { Button } from '../components/Button';
+
 
 const styles = {
     SearchBar: {
@@ -48,6 +48,7 @@ const Projects1 = () => {
             <ProjectList
                 projects={data.searchProject}
             />
+        
         </div>
     );
 };
