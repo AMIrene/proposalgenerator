@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 
 import { ADD_PROJECT } from '../gql/mutations';
 import { QUERY_PROJECTS, QUERY_USER } from '../gql/queries';
@@ -10,6 +10,15 @@ import Auth from '../utils/auth';
 const AddProjectForm = () => {
 
     const [newProject, setNewProject] = useState('');
+    const [projectRef, setProjectRef] = useState('');
+    const [projectTitle, setProjectTitle] = useState('');
+    const [projectClient, setProjectClient] = useState('');
+    const [tags, setTags] = useState('');
+    const [projectDescription, setProjectDescription] = useState('');
+    const [projectId, setProjectId] = useState('');
+
+    const { loading, data } = useQuery(QUERY_PROJECTS);
+    const project = data?.project || [];
 
     const [addProject, { error }] = useMutation(ADD_PROJECT, {
         update(cache, { data: { addProject } }) {
@@ -25,11 +34,11 @@ const AddProjectForm = () => {
           }
     
           // update user object's cache
-          const { user } = cache.readQuery({ query: QUERY_USER });
-          cache.writeQuery({
-            query: QUERY_USER,
-            data: { user: { ...user, project: [...user.project, addProject] } },
-          });
+          // const { user } = cache.readQuery({ query: QUERY_USER });
+          // cache.writeQuery({
+          //   query: QUERY_USER,
+          //   data: { user: { ...user, project: [...user.project, addProject] } },
+          // });
         },
     });
     
@@ -49,7 +58,13 @@ const AddProjectForm = () => {
                 },
             });
     
-            setNewProject('');
+          setNewProject('');
+          // setProjectRef('');
+          // setProjectTitle('');
+          // setProjectClient('');
+          // setTags('');
+          // setProjectDescription('');
+          // setProjectId('');
         } catch (err) {
             console.error(err);
         }
@@ -67,33 +82,33 @@ const AddProjectForm = () => {
               <div className="col-12 col-lg-9">
                 <input
                   placeholder="Add project reference"
-                  value={Project.projectRef}
+                  value={newProject.projectRef}
                  
-                  onChange={(event) => setNewProject(event.target.value)}
+                  onChange={(event) => setProjectRef(event.target.value)}
                         />
                 <input
                   placeholder="Add project title"
-                  value={Project.projectTitle}
+                  value={newProject.projectTitle}
                   
-                  onChange={(event) => setNewProject(event.target.value)}
+                  onChange={(event) => setProjectTitle(event.target.value)}
                 />
                 <input
                   placeholder="Add project client"
-                  value={projectClient}
+                  value={newProject.projectClient}
                 
-                  onChange={(event) => setNewProject(event.target.value)}
+                  onChange={(event) => setProjectClient(event.target.value)}
                  />
                  <input
                   placeholder="Add project description"
-                  value={projectDescription}
+                  value={newProject.projectDescription}
                
-                  onChange={(event) => setNewProject(event.target.value)}
+                  onChange={(event) => setProjectDescription(event.target.value)}
                         />
                  <input
                   placeholder="Add project tags. Add multiple separated by comma."
-                  value={tags}
+                  value={newProject.tags}
             
-                  onChange={(event) => setNewProject(event.target.value)}
+                  onChange={(event) => setTags(event.target.value)}
                 />
               </div>
               
@@ -101,8 +116,10 @@ const AddProjectForm = () => {
               <div className="col-12 col-lg-3">
                 <button type="submit">
                  Add project
-                </button>
-              </div>
+                        </button>
+                     
+                    </div>
+                   
               {error && (
                 <div >
                   {error.message}

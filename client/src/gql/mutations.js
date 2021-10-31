@@ -31,16 +31,27 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_PROJECT = gql`
-mutation addProject($projectId: Int, $projectRef: String, $projectTitle: String, $tags: String, $projectClient: String, $projectDescription: String){
-  addProject(projectId: $projectId, projectRef: $projectRef, projectTitle: $projectTitle, tags: $tags, projectClient: $projectClient, projectDescription: $projectDescription){
+mutation addProject(
+  $projectRef: String
+  $projectTitle: String
+  $projectDescription: String
+  $projectClient: String
+  $tags: String
+  ) {
+  addProject(
+    projectRef: $projectRef
+    projectTitle: $projectTitle
+    projectDescription: $projectDescription
+    projectClient: $projectClient
+    tags: $tags
+    ) {
     _id
-    projectId
     projectRef
     projectTitle
-    tags
-    projectClient
     projectDescription
-    projectManager
+    projectClient
+    tags      
+    projectManager{_id}
     createdAt
   }
 }
@@ -48,14 +59,15 @@ mutation addProject($projectId: Int, $projectRef: String, $projectTitle: String,
 
 export const UPDATE_PROJECT = gql`
 mutation updateProject ($projectId: Int, $projectRef: String, $projectTitle: String, $tags: String, $projectClient: String, $projectDescription: String){
-  addProject(projectId: $projectId, projectRef: $projectRef, projectTitle: $projectTitle, tags: $tags, projectClient: $projectClient, projectDescription: $projectDescription){
+  updateProject(projectId: $projectId, projectRef: $projectRef, projectTitle: $projectTitle, tags: $tags, projectClient: $projectClient, projectDescription: $projectDescription){
     _id
     projectId
     projectRef
+    projectTitle
     tags
     projectClient
     projectDescription
-    projectManager
+    projectManager {_id}
     createdAt
   }
 }

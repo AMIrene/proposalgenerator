@@ -7,6 +7,7 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import { Button } from '../components/Button';
 
+
 const styles = {
     SearchBar: {
         width: '50%',
@@ -47,7 +48,7 @@ const Projects1 = () => {
             <ProjectList
                 projects={data.searchProject}
             />
-
+        
         </div>
     );
 };

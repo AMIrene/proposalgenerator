@@ -73,6 +73,12 @@ function AuthNav() {
 					</Link>
 				</NavigationItem>
 			
+				<NavigationItem >
+					<Link  to="/newproject">
+						Add Project
+					</Link>
+				</NavigationItem>
+
 				<NavigationItem>
 					{/* this is not using the Link component to logout or user and then refresh the application to the start */}
 					<a href="/" onClick={() => Auth.logout()}>
