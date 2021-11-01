@@ -58,7 +58,7 @@ mutation addProject(
 `;
 
 export const UPDATE_PROJECT = gql`
-mutation updateProject ($projectId: Int, $projectRef: String, $projectTitle: String, $tags: String, $projectClient: String, $projectDescription: String){
+mutation updateProject ($projectId: ID, $projectRef: String, $projectTitle: String, $tags: String, $projectClient: String, $projectDescription: String){
   updateProject(projectId: $projectId, projectRef: $projectRef, projectTitle: $projectTitle, tags: $tags, projectClient: $projectClient, projectDescription: $projectDescription){
     _id
     projectId
@@ -75,7 +75,7 @@ mutation updateProject ($projectId: Int, $projectRef: String, $projectTitle: Str
 
 
 export const DELETE_PROJECT = gql`
-mutation deleteProject($projectId: Int) {
+mutation deleteProject($projectId: ID) {
   deleteProject(projectId: $projectId) {
     _id
     projectId

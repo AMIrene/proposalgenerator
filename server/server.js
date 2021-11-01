@@ -37,9 +37,7 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: authMiddleware,
-  plugins: [
-    myPlugin
-  ]
+ 
 });
 
 server.applyMiddleware({ app });

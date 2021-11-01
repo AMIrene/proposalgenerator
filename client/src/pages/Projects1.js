@@ -7,7 +7,6 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import { Button } from '../components/Button';
 
-
 const styles = {
     SearchBar: {
         width: '50%',
@@ -42,13 +41,16 @@ const Projects1 = () => {
     return (
         <div>
             <Box>
+              
                 <TextField style={styles.SearchBar}id="outlined-basic" value={searchText} variant="outlined" onChange={(event) => {setSearchText(event.target.value)}} />
                 <Button style={styles.Btn} variant="contained" onClick={()=>{}}>Search</Button>
             </Box>
+
+          
             <ProjectList
                 projects={data.searchProject}
             />
-        
+  
         </div>
     );
 };
